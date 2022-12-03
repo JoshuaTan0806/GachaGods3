@@ -15,7 +15,7 @@ public class CharacterManager : Factories.FactoryBase
     static List<Rarity> rarities = new List<Rarity>();
     [SerializeField] List<Rarity> _rarities;
 
-    public static CharacterBlessings CharacterMastery => characterMastery;
+    public static CharacterBlessings CharacterBlessings => characterMastery;
     static CharacterBlessings characterMastery = new CharacterBlessings();
     public static List<Character> ActiveCharacters => activeCharacters;
     static List<Character> activeCharacters = new List<Character>();
@@ -36,20 +36,20 @@ public class CharacterManager : Factories.FactoryBase
 
     void Clear()
     {
-        CharacterMastery.Clear();
+        CharacterBlessings.Clear();
         ActiveCharacters.Clear();
     }
 
     public static void AddCharacter(Character character)
     {
-        if (CharacterMastery.ContainsKey(character))
+        if (CharacterBlessings.ContainsKey(character))
         {
-            if (CharacterMastery[character] < CharacterMastery.Count)
-                CharacterMastery[character]++;
+            if (CharacterBlessings[character] < CharacterBlessings.Count)
+                CharacterBlessings[character]++;
         }
         else
         {
-            CharacterMastery.Add(character, 0);
+            CharacterBlessings.Add(character, 0);
         }
 
         OnCharacterPulled?.Invoke(character);
