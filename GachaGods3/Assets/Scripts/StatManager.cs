@@ -7,9 +7,9 @@ using UnityEditor;
 [CreateAssetMenu(menuName = "Managers/StatManager")]
 public class StatManager : Factories.FactoryBase
 {
-    public static StatDictionary StatDictionary => statDictionary;
-    static StatDictionary statDictionary = new StatDictionary();
-    [SerializeField, ReadOnly] StatDictionary stats;
+    public static Stats StatDictionary => statDictionary;
+    static Stats statDictionary = new Stats();
+    [SerializeField, ReadOnly] Stats stats;
 
     public override void Initialise()
     {
@@ -62,4 +62,5 @@ public class StatManager : Factories.FactoryBase
 #endif
 }
 
-[System.Serializable] public class StatDictionary : SerializableDictionary<Stat, StatData> { }
+[System.Serializable] public class Stats : SerializableDictionary<Stat, StatData> { }
+[System.Serializable] public class BaseStats : SerializableDictionary<Stat, float> { }
