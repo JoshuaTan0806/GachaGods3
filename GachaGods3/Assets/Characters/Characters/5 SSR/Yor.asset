@@ -33,8 +33,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rarity: {fileID: 11400000, guid: dc32ef1f41aec134bafd5224085d3d74, type: 2}
   baseStats:
-    m_keys: 
-    m_values: []
+    m_keys: 0000000001000000020000000300000004000000
+    m_values:
+    - 43
+    - 84
+    - 39
+    - 67
+    - 19
   blessings: []
   abilities: []
   appearance: {fileID: -707074854043216184}

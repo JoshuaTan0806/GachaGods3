@@ -35,11 +35,11 @@ MonoBehaviour:
   baseStats:
     m_keys: 0000000001000000020000000300000004000000
     m_values:
-    - 16
+    - 79
+    - 70
+    - 30
     - 76
-    - 92
-    - 54
-    - 69
+    - 83
   blessings: []
   abilities: []
   appearance: {fileID: -3287135896294007061}
