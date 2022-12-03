@@ -80,7 +80,7 @@ public class CharacterManager : Factories.FactoryBase
         List<Character> c = new();
 
         //Every 2 rounds, add another rarity to the pool
-        List<Character> pullableCharacters = characters.Where(x => x.Rarity.RarityNumber <= 1 + (GameManager.RoundNumber % 2)).ToList();
+        List<Character> pullableCharacters = characters.Where(x => x.Rarity.RarityNumber <= 1 + Mathf.FloorToInt(GameManager.RoundNumber / 2)).ToList();
 
         for (int i = 0; i < 10; i++)
         {

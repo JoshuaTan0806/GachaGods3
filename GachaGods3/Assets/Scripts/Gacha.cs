@@ -14,7 +14,10 @@ public class Gacha : MonoBehaviour
     {
         confirmButton.onClick.AddListener(() => ConfirmCards());
         confirmButton.interactable = false;
+    }
 
+    private void Start()
+    {
         RandomiseCharacters();
     }
 
