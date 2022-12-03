@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87c4748048cf48c458bb1c2ca8439f0d, type: 3}
   m_Name: CharacterManager
   m_EditorClassIdentifier: 
-  _characters:
+  seed: 0
+  allCharacters:
   - {fileID: 11400000, guid: 587cd21981db8d8438fccf4956bb142b, type: 2}
   - {fileID: 11400000, guid: a0eb037e3629d064d9d3aa99159aa1a5, type: 2}
   - {fileID: 11400000, guid: de66e9c475c93634497152a1503252da, type: 2}

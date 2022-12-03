@@ -7,9 +7,11 @@ using System.Linq;
 [CreateAssetMenu(menuName = "Managers/Character Manager")]
 public class CharacterManager : Factories.FactoryBase
 {
+    [SerializeField] int seed;
+
     public static List<Character> Characters => characters;
     static List<Character> characters = new List<Character>();
-    [SerializeField] List<Character> _characters;
+    [SerializeField] List<Character> allCharacters;
 
     public static List<Rarity> Rarities => rarities;
     static List<Rarity> rarities = new List<Rarity>();
@@ -30,8 +32,28 @@ public class CharacterManager : Factories.FactoryBase
         GameManager.OnGameEnd -= Clear;
         GameManager.OnGameEnd += Clear;
 
-        characters = _characters;
         rarities = _rarities.OrderBy(x => x.RarityNumber).ToList();
+
+        InitialiseCharacters();
+    }
+
+    void InitialiseCharacters()
+    {
+        characters.Clear();
+
+        Random.InitState(seed);
+
+        foreach (var rarity in rarities)
+        {
+            List<Character> charactersOfRarity = allCharacters.Where(x => x.Rarity == rarity).ToList();
+
+            for (int i = 0; i < 10; i++)
+            {
+                characters.Add(charactersOfRarity.ChooseRandomElementInList(true));
+            }
+        }
+   
+        Random.InitState(System.Environment.TickCount);
     }
 
     void Clear()
