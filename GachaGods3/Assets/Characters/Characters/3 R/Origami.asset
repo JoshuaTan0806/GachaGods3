@@ -13,3 +13,8 @@ MonoBehaviour:
   m_Name: Origami
   m_EditorClassIdentifier: 
   rarity: {fileID: 11400000, guid: 27d5dc7d806f2df4f80365ac1b3a74b0, type: 2}
+  baseStats:
+    m_keys: 
+    m_values: []
+  blessings: []
+  abilities: []

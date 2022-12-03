@@ -13,3 +13,8 @@ MonoBehaviour:
   m_Name: Miku
   m_EditorClassIdentifier: 
   rarity: {fileID: 11400000, guid: 3cd61046da265d44baf2779ecfbc1324, type: 2}
+  baseStats:
+    m_keys: 
+    m_values: []
+  blessings: []
+  abilities: []

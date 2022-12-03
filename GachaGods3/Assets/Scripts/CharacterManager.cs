@@ -74,6 +74,21 @@ public class CharacterManager : Factories.FactoryBase
             activeCharacters.Remove(character);
         }
     }
+
+    public static List<Character> TenPull()
+    {
+        List<Character> c = new();
+
+        //Every 2 rounds, add another rarity to the pool
+        List<Character> pullableCharacters = characters.Where(x => x.Rarity.RarityNumber <= 1 + (GameManager.RoundNumber % 2)).ToList();
+
+        for (int i = 0; i < 10; i++)
+        {
+            c.Add(pullableCharacters.ChooseRandomElementInList());
+        }
+
+        return c;
+    }
 }
 
 public class CharacterBlessings : SerializableDictionary<Character, int> { }

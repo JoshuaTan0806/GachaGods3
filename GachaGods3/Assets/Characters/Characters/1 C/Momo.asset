@@ -13,3 +13,8 @@ MonoBehaviour:
   m_Name: Momo
   m_EditorClassIdentifier: 
   rarity: {fileID: 11400000, guid: 5caa1fcf88ed40b4abb3e1f7df2d8f23, type: 2}
+  baseStats:
+    m_keys: 
+    m_values: []
+  blessings: []
+  abilities: []
