@@ -48,6 +48,17 @@ public class Character : ScriptableObject
     }
 
     [Button]
+    void CreateAppearance()
+    {
+        AppearanceData appearance = ScriptableObject.CreateInstance<AppearanceData>();
+        appearance.name = "Appearance";
+        this.appearance = appearance;
+        AssetDatabase.AddObjectToAsset(appearance, this);
+
+        EditorExtensionMethods.SaveAsset(this);
+    }
+
+    [Button]
     void CreateAbility()
     {
         AbilityData ability = ScriptableObject.CreateInstance<AbilityData>();
