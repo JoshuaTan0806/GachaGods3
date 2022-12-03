@@ -48,8 +48,8 @@ public class CharacterAppearance : MonoBehaviour
 
     public void EquipWeapon(WeaponData weaponData)
     {
-        ReplaceCosmetic(weaponData.LHWeaponPrefab, LWeaponPos);
-        ReplaceCosmetic(weaponData.RHWeaponPrefab, RWeaponPos);
+        ReplaceCosmetic(weaponData.LWeaponPrefab, LWeaponPos);
+        ReplaceCosmetic(weaponData.RWeaponPrefab, RWeaponPos);
     }
 
     public void EquipBack(BackData backData)

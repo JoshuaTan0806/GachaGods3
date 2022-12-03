@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Sirenix.OdinInspector;
 
-[CreateAssetMenu(menuName = "Blessing")]
+[CreateAssetMenu(menuName = "Character/Blessing")]
 public class Blessing : ScriptableObject
 {
 #if UNITY_EDITOR

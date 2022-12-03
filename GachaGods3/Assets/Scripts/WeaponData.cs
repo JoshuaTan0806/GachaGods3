@@ -6,8 +6,8 @@ using UnityEngine;
 public class WeaponData : CosmeticData
 {
     public const string ID = "Weapon";
-    public GameObject LHWeaponPrefab => lhWeaponPrefab;
-    [SerializeField] GameObject lhWeaponPrefab;
-    public GameObject RHWeaponPrefab => rhWeaponPrefab;
-    [SerializeField] GameObject rhWeaponPrefab;
+    public GameObject LWeaponPrefab => lWeaponPrefab;
+    [SerializeField] GameObject lWeaponPrefab;
+    public GameObject RWeaponPrefab => rWeaponPrefab;
+    [SerializeField] GameObject rWeaponPrefab;
 }
