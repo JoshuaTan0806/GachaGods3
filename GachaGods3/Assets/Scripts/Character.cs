@@ -16,6 +16,9 @@ public class Character : ScriptableObject
     public List<AbilityData> Abilities => abilities;
     [SerializeField] List<AbilityData> abilities;
 
+    public AppearanceData Appearance => appearance;
+    [SerializeField] AppearanceData appearance;
+
 #if UNITY_EDITOR
 
     [Button]
