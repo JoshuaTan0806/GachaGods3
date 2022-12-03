@@ -105,7 +105,6 @@ public enum Stat
     Damage,
     CritChance,
     CritDamage,
-    Deat
 }
 
 public enum StatModifier

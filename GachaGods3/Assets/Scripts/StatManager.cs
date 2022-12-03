@@ -61,3 +61,5 @@ public class StatManager : Factories.FactoryBase
     }
 #endif
 }
+
+[System.Serializable] public class StatDictionary : SerializableDictionary<Stat, StatData> { }
