@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         roundNumber = 0;
+        OnGameStart?.Invoke();
         StartPlanning();
     }
 

@@ -6,7 +6,7 @@ public class Bench : MonoBehaviour
 {
     List<BenchSpot> bench = new();
 
-    [SerializeField] CharacterAppearance characterPreview;
+    [SerializeField] CharacterStats characterPreview;
 
     [SerializeField] Vector2Int spotsX = new();
     [SerializeField] Vector2Int spotsY = new();
@@ -43,8 +43,10 @@ public class Bench : MonoBehaviour
         {
             if(spot.IsEmpty())
             {
-                CharacterAppearance a = Instantiate(characterPreview, spot.transform);
-                a.Initialise(character);
+                CharacterStats c = Instantiate(characterPreview, spot.transform);
+                c.GetComponent<CharacterAppearance>().Initialise(character);
+                c.name = character.name;
+                spot.Initialise(c);
                 return;
             }
         }

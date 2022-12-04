@@ -1763,7 +1763,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1af8b49eb4bc4154ba029bcac785c1a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterPreview: {fileID: 3784967361621604209, guid: ab2a4795653d7e747a477b372a6ee850, type: 3}
+  characterPreview: {fileID: 1243728321682191467, guid: ab2a4795653d7e747a477b372a6ee850, type: 3}
   spotsX: {x: -8, y: 8}
   spotsY: {x: -2, y: -4}
   spotPrefab: {fileID: 4079179158312667240, guid: dded2506a3f6d994baca02471e46df0d, type: 3}

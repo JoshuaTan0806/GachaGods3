@@ -17,8 +17,8 @@ public class CharacterManager : Factories.FactoryBase
     static List<Rarity> rarities = new List<Rarity>();
     [SerializeField] List<Rarity> _rarities;
 
-    public static CharacterBlessings CharacterBlessings => characterMastery;
-    static CharacterBlessings characterMastery = new CharacterBlessings();
+    public static CharacterBlessings CharacterBlessings => characterBlessings;
+    static CharacterBlessings characterBlessings = new CharacterBlessings();
     public static List<Character> ActiveCharacters => activeCharacters;
     static List<Character> activeCharacters = new List<Character>();
   
