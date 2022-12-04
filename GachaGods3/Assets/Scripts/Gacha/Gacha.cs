@@ -87,6 +87,7 @@ public class Gacha : MonoBehaviour
             CharacterManager.AddCharacter(card.Character);
         }
 
+        TabManager.instance.SwitchTabs(Tab.Bench);
         selectedCards.Clear();
     }
 }
