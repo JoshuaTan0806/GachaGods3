@@ -40,6 +40,8 @@ MonoBehaviour:
     - 44
     - 81
     - 3
+  traits:
+  - {fileID: 0}
   blessings: []
   abilities: []
   appearance: {fileID: -7252274117202518173}
