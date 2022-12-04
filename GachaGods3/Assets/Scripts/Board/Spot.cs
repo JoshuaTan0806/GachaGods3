@@ -4,25 +4,14 @@ using UnityEngine;
 
 public class Spot : MonoBehaviour
 {
-    //neeed to change to characterstats
-    [SerializeField] Character character;
+    [SerializeField] CharacterStats character;
 
-    private void OnEnable()
-    {
-        GameManager.OnCombatEnd += Clear;
-    }
-
-    private void OnDisable()
-    {
-        GameManager.OnCombatEnd -= Clear;
-    }
-
-    void Initialise(Character character)
+    public void Initialise(CharacterStats character)
     {
         this.character = character;
     }
 
-    void Clear()
+    protected void Clear()
     {
         character = null;
     }

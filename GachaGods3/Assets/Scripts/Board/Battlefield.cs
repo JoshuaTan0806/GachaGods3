@@ -5,8 +5,8 @@ using UnityEngine;
 public class Battlefield : MonoBehaviour
 {
     public static Battlefield instance;
-    [SerializeField] List<Spot> allyTeam;
-    [SerializeField] List<Spot> enemyTeam;
+    [SerializeField] List<BattlefieldSpot> allyTeam;
+    [SerializeField] List<BattlefieldSpot> enemyTeam;
 
     private void Awake()
     {
@@ -16,7 +16,7 @@ public class Battlefield : MonoBehaviour
             Destroy(gameObject);
     }
 
-    public Spot ClosestEnemy(Team team)
+    public BattlefieldSpot ClosestEnemy(Team team)
     {
         if (team == Team.Ally)
         {
@@ -39,7 +39,7 @@ public class Battlefield : MonoBehaviour
         return null;
     }
 
-    public Spot FurthestEnemy(Team team)
+    public BattlefieldSpot FurthestEnemy(Team team)
     {
         if (team == Team.Ally)
         {
@@ -62,9 +62,9 @@ public class Battlefield : MonoBehaviour
         return null;
     }
 
-    public Spot Random(Team team)
+    public BattlefieldSpot Random(Team team)
     {
-        Spot spot = null;
+        BattlefieldSpot spot = null;
         int counter = 0;
 
         if (team == Team.Ally)

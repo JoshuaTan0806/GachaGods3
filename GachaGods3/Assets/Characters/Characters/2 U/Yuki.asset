@@ -12,13 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d7b207284741fd4284ad637fcf8568b, type: 3}
   m_Name: Appearance
   m_EditorClassIdentifier: 
-  faces: []
-  outfits: []
-  hairStyles: []
-  backs: []
-  hats: []
-  shoes: []
-  weapons: []
+  faces:
+  - {fileID: 11400000, guid: 8d2c04625ba556c408c6a41b355316ff, type: 2}
+  outfits:
+  - {fileID: 11400000, guid: e3a07186fc0d99640bdee927911c6f7e, type: 2}
+  hairStyles:
+  - {fileID: 11400000, guid: e43215bfbb792cb4485482864e8d6fd8, type: 2}
+  backs:
+  - {fileID: 11400000, guid: 411b7a2507fc40640a07c90e88acd86f, type: 2}
+  hats:
+  - {fileID: 11400000, guid: 3af28e157e83a694cad69b4fcaad55d1, type: 2}
+  shoes:
+  - {fileID: 11400000, guid: 975ee904c9e36914c9e86a22978e1d67, type: 2}
+  weapons:
+  - {fileID: 11400000, guid: 70cfc64112ac101458048b65c7299d34, type: 2}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40,6 +47,7 @@ MonoBehaviour:
     - 6
     - 55
     - 87
+  traits: []
   blessings: []
   abilities: []
   appearance: {fileID: -988870534399008707}
