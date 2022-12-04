@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class Battlefield : MonoBehaviour
 {
     public static Battlefield instance;
-    [SerializeField] List<BattlefieldSpot> allyTeam;
-    [SerializeField] List<BattlefieldSpot> enemyTeam;
+    public List<BattlefieldSpot> aliveAlles => allies.Where(x => !x.IsEmpty()).ToList();
+    [SerializeField] List<BattlefieldSpot> allies;
+    public List<BattlefieldSpot> aliveEnemies => enemies.Where(x => !x.IsEmpty()).ToList();
+    [SerializeField] List<BattlefieldSpot> enemies;
 
     private void Awake()
     {
@@ -16,90 +19,58 @@ public class Battlefield : MonoBehaviour
             Destroy(gameObject);
     }
 
-    public BattlefieldSpot ClosestEnemy(Team team)
+    public CharacterStats ClosestEnemy(Team team)
     {
         if (team == Team.Ally)
         {
-            foreach (var spot in enemyTeam)
-            {
-                if (!spot.IsEmpty())
-                    return spot;
-            }
+            if (aliveEnemies.Count == 0)
+                return null;
+
+            return aliveEnemies[0].Character;
         }
         else
         {
-            foreach (var spot in allyTeam)
-            {
-                if (!spot.IsEmpty())
-                    return spot;
-            }
-        }
+            if (aliveAlles.Count == 0)
+                return null;
 
-        Debug.LogError("Asked for an enemy when they are all dead");
-        return null;
+            return aliveAlles[0].Character;
+        }
     }
 
-    public BattlefieldSpot FurthestEnemy(Team team)
+    public CharacterStats FurthestEnemy(Team team)
     {
         if (team == Team.Ally)
         {
-            for (int i = enemyTeam.Count - 1; i >= 0; i--)
-            {
-                if (!enemyTeam[i].IsEmpty())
-                    return enemyTeam[i];
-            }
+            if (aliveEnemies.Count == 0)
+                return null;
+
+            return aliveEnemies.Last().Character;
         }
         else
         {
-            for (int i = allyTeam.Count - 1; i >= 0; i--)
-            {
-                if (!allyTeam[i].IsEmpty())
-                    return allyTeam[i];
-            }
-        }
+            if (aliveAlles.Count == 0)
+                return null;
 
-        Debug.LogError("Asked for an enemy when they are all dead");
-        return null;
+            return aliveAlles.Last().Character;
+        }
     }
 
-    public BattlefieldSpot Random(Team team)
+    public CharacterStats RandomEnemy(Team team)
     {
-        BattlefieldSpot spot = null;
-        int counter = 0;
-
         if (team == Team.Ally)
         {
-            while (spot == null)
-            {
-                spot = enemyTeam.ChooseRandomElementInList();
+            if (aliveEnemies.Count == 0)
+                return null;
 
-                if (!spot.IsEmpty())
-                    return spot;
-
-                counter++;
-
-                if (counter > 1000)
-                    break;
-            }
+            return aliveEnemies.ChooseRandomElementInList().Character;
         }
         else
         {
-            while (spot == null)
-            {
-                spot = allyTeam.ChooseRandomElementInList();
+            if (aliveAlles.Count == 0)
+                return null;
 
-                if (!spot.IsEmpty())
-                    return spot;
-
-                counter++;
-
-                if (counter > 1000)
-                    break;
-            }
+            return aliveEnemies.ChooseRandomElementInList().Character;
         }
-
-        Debug.LogError("Asked for an enemy when they are all dead");
-        return null;
     }
 }
 

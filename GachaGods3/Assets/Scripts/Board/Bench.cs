@@ -81,7 +81,7 @@ public class Bench : MonoBehaviour
         if (hit.transform == null)
             return;
 
-        Spot spot = hit.transform.GetComponent<Spot>();
+        BenchSpot spot = hit.transform.GetComponent<BenchSpot>();
 
         if (spot == null)
             return;

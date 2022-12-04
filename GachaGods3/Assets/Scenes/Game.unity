@@ -369,13 +369,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf3d1f332be2c7e4ead25a26c84c181f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allyTeam:
+  allies:
   - {fileID: 1961941960}
   - {fileID: 1987976783}
   - {fileID: 500654188}
   - {fileID: 383544697}
   - {fileID: 34648562}
-  enemyTeam:
+  enemies:
   - {fileID: 1414622990}
   - {fileID: 934188647}
   - {fileID: 1632650741}
