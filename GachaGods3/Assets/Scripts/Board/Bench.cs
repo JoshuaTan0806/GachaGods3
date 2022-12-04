@@ -1,9 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Bench : MonoBehaviour
 {
+    static CharacterStats heldCharacter = null;
     [SerializeField] List<BenchSpot> team;
     List<BenchSpot> bench = new();
 
@@ -48,7 +50,7 @@ public class Bench : MonoBehaviour
 
         foreach (var spot in bench)
         {
-            if(spot.IsEmpty())
+            if (spot.IsEmpty())
             {
                 CharacterStats c = Instantiate(characterPreview, spot.transform);
                 c.GetComponent<CharacterAppearance>().Initialise(character);
@@ -57,5 +59,59 @@ public class Bench : MonoBehaviour
                 return;
             }
         }
+    }
+
+    private void Update()
+    {
+        HeldCharacterFollowMouse();
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            CheckForSpot();
+        }
+    }
+
+    private void CheckForSpot()
+    {
+        Vector3 pos = Input.mousePosition;
+        pos.z = -Camera.main.transform.position.z;
+
+        RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(pos), Vector2.zero);
+
+        if (hit.transform == null)
+            return;
+
+        Spot spot = hit.transform.GetComponent<Spot>();
+
+        if (spot == null)
+            return;
+
+        if (heldCharacter == null)
+        {
+            if (!spot.IsEmpty())
+            {
+                heldCharacter = spot.Character;
+                spot.Clear();
+            }
+        }
+        else
+        {
+            if (spot.IsEmpty())
+            {
+                spot.Initialise(heldCharacter);
+                heldCharacter = null;
+            }
+        }
+    }
+
+    void HeldCharacterFollowMouse()
+    {
+        if (heldCharacter == null)
+            return;
+
+        Vector3 pos = Input.mousePosition;
+        pos.z = -Camera.main.transform.position.z;
+
+        heldCharacter.transform.position = Camera.main.ScreenToWorldPoint(pos);
     }
 }

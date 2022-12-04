@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class Spot : MonoBehaviour
 {
+    public CharacterStats Character => character;
     [SerializeField] CharacterStats character;
 
     public void Initialise(CharacterStats character)
     {
         this.character = character;
+        character.transform.SetParent(transform);
+        character.transform.localPosition = Vector3.zero;
     }
 
-    protected void Clear()
+    public void Clear()
     {
         character = null;
     }
