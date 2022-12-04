@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class Bench : MonoBehaviour
 {
+    [SerializeField] List<BenchSpot> team;
     List<BenchSpot> bench = new();
 
     [SerializeField] CharacterStats characterPreview;
+    [SerializeField] Transform benchParent;
 
-    [SerializeField] Vector2Int spotsX = new();
-    [SerializeField] Vector2Int spotsY = new();
+    [SerializeField] Vector2 startPos;
+    [SerializeField] int numInRow;
     [SerializeField] BenchSpot spotPrefab;
 
     private void OnEnable()
@@ -24,13 +26,18 @@ public class Bench : MonoBehaviour
 
     void Start()
     {
-        for (int j = spotsY.x - 1; j >= spotsY.y; j--)
+        for (int i = 0; i < 50; i++)
         {
-            for (int i = spotsX.x; i < spotsX.y + 1; i++)
-            {
-                BenchSpot s = Instantiate(spotPrefab, new Vector3(i, j, 0), Quaternion.identity, transform);
-                bench.Add(s);
-            }
+            Vector3 spawnPos = startPos;
+
+            int currentNumInRow = i % numInRow;
+            int currentRow = i / numInRow;
+
+            spawnPos.x += 1.5f * currentNumInRow;
+            spawnPos.y -= 1.5f * currentRow;
+
+            BenchSpot s = Instantiate(spotPrefab, spawnPos, Quaternion.identity, benchParent);
+            bench.Add(s);
         }
     }
 
