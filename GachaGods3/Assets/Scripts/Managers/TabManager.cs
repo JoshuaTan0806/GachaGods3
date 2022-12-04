@@ -34,4 +34,4 @@ public class TabManager : MonoBehaviour
     }
 }
 
-[System.Serializable] public class TabDictionary : Dictionary<Tab, GameObject> { }
+[System.Serializable] public class TabDictionary : SerializableDictionary<Tab, GameObject> { }

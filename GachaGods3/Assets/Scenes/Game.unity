@@ -3977,6 +3977,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fde24d196f3139d45ac4a75daefbafd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tabs:
+    m_keys: 000000000100000002000000
+    m_values:
+    - {fileID: 332800839}
+    - {fileID: 1134558969}
+    - {fileID: 185985211}
 --- !u!114 &2136203935 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3925510302059358060, guid: 4235481b49ada39438cf89dafd5c4583, type: 3}
