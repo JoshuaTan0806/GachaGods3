@@ -4,8 +4,17 @@ using UnityEngine;
 
 public class Battlefield : MonoBehaviour
 {
+    public static Battlefield instance;
     [SerializeField] List<Spot> allyTeam;
     [SerializeField] List<Spot> enemyTeam;
+
+    private void Awake()
+    {
+        if (instance == null)
+            instance = this;
+        else
+            Destroy(gameObject);
+    }
 
     public Spot ClosestEnemy(Team team)
     {
@@ -46,6 +55,46 @@ public class Battlefield : MonoBehaviour
             {
                 if (!allyTeam[i].IsEmpty())
                     return allyTeam[i];
+            }
+        }
+
+        Debug.LogError("Asked for an enemy when they are all dead");
+        return null;
+    }
+
+    public Spot Random(Team team)
+    {
+        Spot spot = null;
+        int counter = 0;
+
+        if (team == Team.Ally)
+        {
+            while (spot == null)
+            {
+                spot = enemyTeam.ChooseRandomElementInList();
+
+                if (!spot.IsEmpty())
+                    return spot;
+
+                counter++;
+
+                if (counter > 1000)
+                    break;
+            }
+        }
+        else
+        {
+            while (spot == null)
+            {
+                spot = allyTeam.ChooseRandomElementInList();
+
+                if (!spot.IsEmpty())
+                    return spot;
+
+                counter++;
+
+                if (counter > 1000)
+                    break;
             }
         }
 
