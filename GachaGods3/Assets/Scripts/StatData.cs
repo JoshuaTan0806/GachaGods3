@@ -3,11 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 using Sirenix.OdinInspector;
 
+public enum StatRequirement
+{
+    None,
+    Trait,
+    Character
+}
+
 [CreateAssetMenu(menuName = "Character/Stat")]
 public class StatData : ScriptableObject
 {
     public Stat Stat => stat;
     [SerializeField] Stat stat;
+
+    public StatRequirement StatRequirement => statRequirement;
+    [SerializeField] StatRequirement statRequirement = StatRequirement.None;
+
+    public Trait Trait => trait;
+    [ShowIf("statRequirement", StatRequirement.Trait), SerializeField] Trait trait;
+
+    public Character Character => character;
+    [ShowIf("statRequirement", StatRequirement.Character), SerializeField] Character character;
 
     public float Flat
     {

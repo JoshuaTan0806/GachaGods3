@@ -11,6 +11,8 @@ public class Character : ScriptableObject
     [SerializeField] Rarity rarity;
     public BaseStats BaseStats => baseStats;
     [SerializeField] BaseStats baseStats;
+    public List<Trait> Traits => traits;
+    [SerializeField] List<Trait> traits;
     public List<Blessing> Blessings => blessings;
     [SerializeField] List<Blessing> blessings;
     public List<AbilityData> Abilities => abilities;
